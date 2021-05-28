@@ -237,7 +237,7 @@ def quest_2(team_choice,choice,team,food):
         print("Your team reaches the village, the hero speaks to the farmers and gets to know more about the Griffin.")
         print("The frequency of its raids, time of attack and it's favourite animal to hunt..")
         print("Based on the given info, your team plans to lure the Griffin in an open field with a bait.")
-        print("They tie a sheep to a pole and wait for the Griffin to attack at dusk!")
+        print("They tie a sheep to a pole and wait for the Griffin to attack at dawn!")
         print("")
         print("Hero is woken up by a loud screech..Up in the sky griffin is circling over the sheep!")
         print("The team readies itself, shoots some arrow at the Griffin, try to get its attention.")
