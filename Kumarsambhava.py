@@ -743,6 +743,7 @@ def outro_text():
     print("The game has been a very basic attempt to test different concepts of programming!")
     print("Hope you've had fun as I've had while writing this..")
     print("Game offers you 3 different outcomes based the choices you've made. Try and get them all?")
+    print("ASCII art credit: Alex Wargacki, source: https://www.asciiart.eu/mythology/dragons")
 
 # Crucial function ensuring all values input by user are legitimate
 def check_input(value,key):
