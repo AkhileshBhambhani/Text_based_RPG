@@ -112,6 +112,7 @@ def quest_1(x):
     print("In the distance you hear a wolf howling. You trace footsteps of your missing " + team_list[1] + ".")
     print("You find that he is surrounded by a pack of ravenous wolves and is wounded..\n")
 
+
     # Calculated values needed for progression, deep copy prevents alteration to original file
     team = copy.deepcopy(org_team)
     wolf = WOLF
@@ -144,6 +145,8 @@ def quest_1(x):
     while team_health > 0 and pack_health > 0:
         print("You 0) Attack 1) Defend 2) Restore Health")
         choice = check_input(input("Enter number: "), 'combat')
+        print("")
+        print("---------------------------------------")
         # Combat is designed to hit last player in team first. i.e. foot soldier 2 or archer 2
         # No of health points to be restored cannot be more than food supplies or more than amount of hit taken from max health
         if choice == 2 and team_health < max_thealth_q1 and food >= 1:
@@ -191,6 +194,7 @@ def quest_1(x):
             for key in team:
                 print("Your " + key + " is at health: " + str(team[key]['Health']))
             print("Your food supplies are at " + str(food))
+            print("---------------------------------------")
     if team_health == 0:
         print("GAME OVER!! Start again")
         game_status = False
@@ -200,6 +204,8 @@ def quest_1(x):
         print("You salvage raw meat and few items, your food supplies are up by 20!")
         print("The hero has gained experience points, intelligence is up by 1 point!")
         print("The pack of wolf was also guarding a cursed oil, you apply it to your blade, damage is up by 1!")
+        print("")
+        print("--------------------------------------- E N D  O F  Q U E S T  1---------------------------------------")
         team['Hero']['Intellect'] += 1
         team['Hero']['Strength'] += 1
         food += 20
@@ -234,6 +240,7 @@ def quest_2(team_choice,choice,team,food):
         mercy = MERCY
         mercy += 1
         print("")
+        print("")
         print("Your team reaches the village, the hero speaks to the farmers and gets to know more about the Griffin.")
         print("The frequency of its raids, time of attack and it's favourite animal to hunt..")
         print("Based on the given info, your team plans to lure the Griffin in an open field with a bait.")
@@ -249,6 +256,8 @@ def quest_2(team_choice,choice,team,food):
         while team_health > 0 and griffin_health > 0:
             print("You 0) Attack 1) Defend 2) Restore Health")
             choice = check_input(input("Enter number: "), 'combat')
+            print("")
+            print("---------------------------------------")
             if choice == 2 and team_health < max_thealth_q2 and food >= 1:
                 difference = max_thealth_q2 - team_health
                 print("Teams health is low by " + str(difference) + ". Your food supplies are at " + str(food))
@@ -291,6 +300,7 @@ def quest_2(team_choice,choice,team,food):
                 for key in team:
                     print("Your " + key + " is at health: " + str(team[key]['Health']))
                 print("Your food supplies are at " + str(food))
+                print("---------------------------------------")
         if team_health == 0:
             print("GAME OVER!! Start again")
             game_status = False
@@ -313,12 +323,16 @@ def quest_2(team_choice,choice,team,food):
             take_food = check_input(input("Enter number: "), 'quest')
             if take_food == 1:
                 food += 30
+                print("")
+                print("--------------------------------------- E N D  O F  Q U E S T  2 ---------------------------------------")
             else:
                 mercy += 1
                 print("")
                 print("The villagers are humbled by your act! Seeing your altruism, the village sage approaches you...")
                 print("He warns you about an impending danger.. you'll come across a giant creature before you reach Asarta-van")
                 print("The creature possesses massive source of knowledge..He advises you not to kill the creature!")
+                print("")
+                print("--------------------------------------- E N D  O F  Q U E S T  2 ---------------------------------------")
             game_status = True
         return [team, food,mercy,game_status]
 
@@ -372,6 +386,8 @@ def quest_3(team_choice,team,mercy,food):
     while team_health > 0 and opponent_health > 0.25 * max_opp_health:
         print("You 0) Attack 1) Defend 2) Restore Health")
         choice = check_input(input("Enter number: "), 'combat')
+        print("")
+        print("---------------------------------------")
         if choice == 2 and team_health < max_thealth_q3 and food >= 1:
             difference = max_thealth_q3 - team_health
             print("Teams health is low by " + str(difference) + ". Your food supplies are at " + str(food))
@@ -424,6 +440,7 @@ def quest_3(team_choice,team,mercy,food):
             for key in team:
                 print("Your " + key + " is at health: " + str(team[key]['Health']))
             print("Your food supplies are at " + str(food))
+            print("---------------------------------------")
     if team_health == 0:
         print("GAME OVER!! Start again")
         game_status = False
@@ -448,6 +465,8 @@ def quest_3(team_choice,team,mercy,food):
             print("Intelligence maxed to 10! Damage maxed out at 10!")
             print("You've acquired dragon breath capability")
             print("Food supplies up by 30.")
+            print("")
+            print("--------------------------------------- E N D  O F  Q U E S T  3 ---------------------------------------")
             mercy += 1
             team['Hero']['Strength'] = 10
             team['Hero']['Intellect'] = 10
@@ -465,6 +484,8 @@ def quest_3(team_choice,team,mercy,food):
             print("The potion gives you all knowledge Kshatriyas possess. You learn what is is to be a Kshatriya.")
             print("Intelligence maxed to 10! Damage maxed out at 10!")
             print("Food supplies up by 30.")
+            print("")
+            print("--------------------------------------- E N D  O F  Q U E S T  3 ---------------------------------------")
             mercy += 1
             team['Hero']['Strength'] = 10
             team['Hero']['Intellect'] = 10
@@ -476,6 +497,8 @@ def quest_3(team_choice,team,mercy,food):
             print("You gained experience points! Intelligence up by 1!")
             print("Gained extra damage point. Damage up by 1")
             print("Food supplies up by 30.")
+            print("")
+            print("--------------------------------------- E N D  O F  Q U E S T  3 ---------------------------------------")
             team['Hero']['Strength'] += 1
             team['Hero']['Intellect'] += 1
             food += 30
@@ -518,12 +541,14 @@ def quest_4(team_choice,team,mercy,food,dragon_status):
     print("The demon emerges from ground. Wielding an enormous sword, engulfed in flames!")
     print("You wield your weapon and charge towards the creature..")
     print("Narakasura shoots multiple arrows at you. You deflect them away at breakneck speed.")
+    print("")
     for key in team:
         print("Your " + key + " is at health: " + str(team[key]['Health']))
     print("Your food supplies are at " + str(food))
     while team_health > 0 and opponent_health > 0:
         print("You 0) Attack 1) Defend 2) Restore Health")
         choice = check_input(input("Enter number: "), 'combat')
+        print("---------------------------------------")
         if choice == 2 and team_health < max_thealth_q4 and food >= 1:
             difference = max_thealth_q4 - team_health
             print("Teams health is low by " + str(difference) + ". Your food supplies are at " + str(food))
@@ -551,7 +576,6 @@ def quest_4(team_choice,team,mercy,food,dragon_status):
         if choice == 0:
             team_attack = attack(team)
             if team_attack >= 8 and dragon == True:
-                print("---------------------------------------------------------------")
                 print(r"""\
                                     ==(W{==========-      /===-                        
                                               ||  (.--.)         /===-_---~~~~~~~~~------____  
@@ -588,7 +612,7 @@ def quest_4(team_choice,team,mercy,food,dragon_status):
                 print("You wound Narakasura fatally, hit him with your Dragon-Breath!")
                 team_attack = math.floor(team_attack * 1.5)
                 print("A " + str(team_attack) + " point attack!!")
-                print("---------------------------------------------------------------")
+                print("---------------------------------------")
             opponent_health = health_status(team_attack, opponent_health, opponent)
             print_status_opp('Narakasura', opponent_health, max_opp_health, update_opp(opponent))
         opponent_attack = attack_opp(defence_state, team, opponent)
@@ -607,13 +631,16 @@ def quest_4(team_choice,team,mercy,food,dragon_status):
             for key in team:
                 print("Your " + key + " is at health: " + str(team[key]['Health']))
             print("Your food supplies are at " + str(food))
+            print("---------------------------------------")
     if team_health == 0:
         print("GAME OVER!! Start again")
         game_status = False
         return game_status
     else:
         print("")
-        print("CONGRATULATIONS! You've WON!!")
+        print("                                        C O N G R A T U L A T I O N S !!                                        ")
+        print("                                               Y O U  W I N !!                                              ")
+        print("")
         print("The mighty Narakasura is down!! You've defeated the Rakshasa clan's head.")
         print("Bringing an end to the war, restoring balance to the world again..")
         if mercy == 0:
@@ -631,6 +658,8 @@ def quest_4(team_choice,team,mercy,food,dragon_status):
             print("You've been kind to others different from you!")
             print("Shown mercy on more than one occasion! Being altruistic has earned you the trust of other clans and people in your empire!")
             print("You are a true WAR-GOD!!!")
+            print("")
+            print("--------------------------------------- E N D  O F  G A M E ---------------------------------------")
             img.show()
         game_status = True
         return game_status
@@ -660,6 +689,9 @@ def print_status_opp(name,thealth,max_opp_health,status):
 
 def get_opt_quest():
     print("")
+    print("")
+    print("")
+    print("--------------------------------------- O P T I O N A L  Q U E S T ---------------------------------------")
     print("After fighting off the Wolves, your team goes back to their base to rest and recuperate.")
     print("Next morning, they march towards the forest. A villager stops their way!")
     print("He speaks about how their village is constantly raided by a giant Griffin.")
@@ -744,6 +776,8 @@ def outro_text():
     print("Hope you've had fun as I've had while writing this..")
     print("Game offers you 3 different outcomes based the choices you've made. Try and get them all?")
     print("ASCII art credit: Alex Wargacki, source: https://www.asciiart.eu/mythology/dragons")
+    print("")
+    print("---------------------------------------------------------------------------------------------------")
 
 # Crucial function ensuring all values input by user are legitimate
 def check_input(value,key):
